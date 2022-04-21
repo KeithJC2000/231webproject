@@ -1,0 +1,107 @@
+
+
+    <script>
+
+        function editCovidInfo() {
+            let covidText = document.getElementById('pCovid');
+            let editText = document.getElementById('txaCovid');
+            editText.value = covidText.textContent;
+            document.getElementById('txaCovid').style.display = "block";
+            document.getElementById('btnEditCovid').style.display = "none";
+            document.getElementById('btnSaveCovid').style.display = "block";
+        }
+
+        function editVaccineInfo(){
+            let covidText = document.getElementById('pVaccine');
+            let editText = document.getElementById('txaVaccine');
+            editText.value = covidText.textContent;
+            document.getElementById('txaVaccine').style.display = "block";
+            document.getElementById('btnEditVaccine').style.display = "none";
+            document.getElementById('btnSaveVaccine').style.display = "block";
+        }
+
+        function saveCovidInfo() {
+            let covidText = document.getElementById('txaCovid');
+            let editText = document.getElementById('pCovid');
+            editText.textContent = covidText.value;
+            document.getElementById('txaCovid').style.display = "none";
+            document.getElementById('btnEditCovid').style.display = "block";
+            document.getElementById('btnSaveCovid').style.display = "none";
+        }
+
+        function saveVaccineInfo(){
+            let covidText = document.getElementById('txaVaccine');
+            let editText = document.getElementById('pVaccine');
+            editText.textContent = covidText.value;
+            document.getElementById('txaVaccine').style.display = "none";
+            document.getElementById('btnEditVaccine').style.display = "block";
+            document.getElementById('btnSaveVaccine').style.display = "none";
+        }
+
+    </script>
+
+<!-- Home -->
+<% if(title == "Home"){%>
+    <div class="homebg" style="padding-bottom: 250px;">
+        <div class="homeinfo">
+            <div class="student"><img src="/Assets/images/cva.png" alt=""></div>
+        </div>
+    </div>
+    <div class="container" style="padding-bottom: 30px;">
+        <h1>Covid 19 Information</h1>
+        <p id="pCovid">Coronavirus disease (COVID-19) is an infectious disease caused by the SARS-CoV-2 virus.
+           Most people infected with the virus will experience mild to moderate respiratory illness and recover without requiring special treatment. However, some will become seriously ill and require medical attention. Older people and those with underlying medical conditions like cardiovascular disease, diabetes, chronic respiratory disease, or cancer are more likely to develop serious illness. Anyone can get sick with COVID-19 and become seriously ill or die at any age.
+           The best way to prevent and slow down transmission is to be well informed about the disease and how the virus spreads. Protect yourself and others from infection by staying at least 1 metre apart from others, wearing a properly fitted mask, and washing your hands or using an alcohol-based rub frequently. Get vaccinated when it’s your turn and follow local guidance.
+           The virus can spread from an infected person’s mouth or nose in small liquid particles when they cough, sneeze, speak, sing or breathe. These particles range from larger respiratory droplets to smaller aerosols. It is important to practice respiratory etiquette, for example by coughing into a flexed elbow, and to stay home and self-isolate until you recover if you feel unwell.</p>
+        <a href="https://www.who.int/health-topics/coronavirus#tab=tab_1">Click for more info </a>
+    </br>
+        <% if(adminUser){%>
+            <button type="button" id="btnEditCovid" onclick="editCovidInfo()" class="btn btn-primary">Edit Text</button>
+            <button type="button" id="btnSaveCovid" onclick="saveCovidInfo()" style="display:none" class="btn btn-success">Save Text</button>
+        <%}else{ %>
+            <% } %>
+        </br>
+        <textarea id="txaCovid" style="display:none" name="txaCovid" rows="10" cols="180"></textarea>
+    </div>
+    <div class="container" style="padding-bottom: 30px;">
+        <h1>Vaccine Information</h1>
+        <p id="pVaccine">Different types of vaccines work in different ways to offer protection. But with all types of vaccines, the body is left with a supply of “memory” T-lymphocytes as well as B-lymphocytes that will remember how to fight that virus in the future.
+           It typically takes a few weeks after vaccination for the body to produce T-lymphocytes and B-lymphocytes. Therefore, it is possible that a person could be infected with the virus that causes COVID-19 just before or just after vaccination and then get sick because the vaccine did not have enough time to provide protection.
+           Sometimes after vaccination, the process of building immunity can cause symptoms, such as fever. These symptoms are normal and are signs that the body is building immunity. Talk to a doctor about taking over-the-counter medicine, such as ibuprofen, acetaminophen, aspirin (only for people age 18 or older), or antihistamines for any pain and discomfort experienced after getting vaccinated.</p>
+        <a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/different-vaccines/how-they-work.html">Click for more info </a>
+    </br>
+        <% if(adminUser){%>
+            <button type="button" id="btnEditVaccine"  onclick="editVaccineInfo()" class="btn btn-primary">Edit Text</button>
+            <button type="button" id="btnSaveVaccine" onclick="saveVaccineInfo()" style="display:none" class="btn btn-success">Save Text</button>
+        <%}else{ %>
+            <% } %>
+        </br>
+        <textarea id="txaVaccine" style="display:none" name="txaVaccine" rows="10" cols="180"></textarea>
+    </div>
+<%}else{ %>
+    <% } %>
+<!-- About -->
+<% if(title == "About"){%>
+    <div class="container" style="padding-bottom: 30px;">
+        <h3><b>Centennial Vaccine Availability (CVA)</b></h3>
+        <p>The Centennial Vaccine Availability project is dedicated towards providing easy access into identifying the availability of COVID-19 Vaccines within Centennial College campuses. We have identified the lack of information towards vaccines that are readily available to be a relevant problem in this time of the pandemic. Our solution is to create a web application that presents this data clearly so that it is easy to read and access for users who are in need of a vaccine. This should help increase the number of vaccinated persons, making it safer for more people living in this pandemic.</p>
+        <h3><b>Business Need</b></h3>
+        <p>COVID-19 has created a difficult situation for the world to exist in, and although we are transitioning to an online environment there is likely to be another vaccine rollout. We believe there is a need for there to be an application that can act as an information board to the user and be able to display how many doses of a particular vaccine are available at a specific location.</p>
+        <p>This would allow for a seamless rollout of the vaccine, with Centennial College Students and other Users being kept in the loop about how many doses were available and allowing them to plan accordingly, as well as provide extra information to students at centennial college and planning authorities allowing them to easily track locations that require more doses.</p>
+        <p>We believe that we can make an easy to navigate application that would shed light on the availability of specific vaccines and provide relevant parties with all required information relating to the vaccine numbers. This would benefit not only Centennial College users and end users, but staff at the vaccination centers as well as administrative staff that liaise with vaccine centers for required dosage amounts.</p>
+        <h3><b>Product Description</b></h3>
+        <p>The CVA aims to solve the problem within the accessibility of COVID-19 Vaccines by providing an accurate description of when and where these vaccines are available within Centennial. Instead of going through multiple websites and calling vaccine clinics, our application would present the data using an organized time-table with accurate booking and walk-in vaccine information.</p>
+        <p>This product would be most beneficial for those who are unvaccinated and require more information on how to get vaccines. This saves them time especially if they are in dire need of a vaccine, as it provides them with the earliest vaccine available with Centennial. CVA is oriented towards increasing the number of people who have been vaccinated, to help overcome the pandemic</p>
+        <p>The project will be deemed successful by increasing the amount of vaccine appointments made within Centennial College by at least 10%. To make sure that our application is efficient, more and more users should book for vaccines as this information will now become readily available to them.</p>
+        <ul id="personalInfo">
+            <h4>About Author:</h4>
+            <li>Student of <a href="https://www.centennialcollege.ca/">CentennialCollege</a></li>
+            <li><b>Group7:</b> Franz Martin Cadiente; Ashley John Turnbull; Xuhui Weng; Chen Jiang; Shiyan Zheng</li>
+            <li><b>Program:</b> COMP231 Software Development Project 1</li>
+            <li><b>Section:</b> 004 </li>
+            <li><b>Professor:</b> Jake Nesovic</li>
+        </ul>
+
+    </div>
+<%}else{ %>
+    <% } %>

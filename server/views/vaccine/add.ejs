@@ -1,0 +1,47 @@
+<%- include ../partials/header.ejs %> 
+<%- include ../partials/main_nav.ejs %> 
+
+<!-- content for the Add page -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+            <h1><%= title %> </h1>
+
+            <form class="form" method="POST">
+                <div class="form-group">
+                    <label for="">vaccine Name</label>
+                    <input type="text" class="form-control" id="nameTextField" placeholder="Enter your vaccine name" name="vaccineName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="">vaccine Number</label>
+                    <input type="text" class="form-control" id="numberTextField" placeholder="Enter your vaccine quantity" name="vaccineQuantity" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="">suitable age</label>
+                    <input type="text" class="form-control" id="numberTextField" placeholder="Enter suitable Age" name="suitableAge" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="">walk-in vaccine quantity</label>
+                    <input type="text" class="form-control" id="numberTextField" placeholder="Enter walk-in vaccine quantity" name="walkIn" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="">appointment vaccine quantity</label>
+                    <input type="text" class="form-control" id="numberTextField" placeholder="Enter appointment vaccine quantity" name="Appointment" required>
+                </div>
+
+                <button class="btn btn-primary" type="submit"><i class="fas fa-edit"></i>Submit</button>
+
+                <a href="/vaccines-list" class="btn btn-warning"><i class="fa fa-undo">Cancel</i></a>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<%- include ../partials/bottom_nav.ejs %> 
+<%- include ../partials/footer.ejs %> 

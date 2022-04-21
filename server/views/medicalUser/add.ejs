@@ -1,0 +1,52 @@
+<%- include ../partials/header.ejs %> 
+<%- include ../partials/main_nav.ejs %> 
+
+<!-- content for the Add page -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+            <h1><%= title %> </h1>
+
+            <form class="form" method="POST">
+                <div class="form-group">
+                    <label for="">Staff Name</label>
+                    <input type="text" class="form-control" id="txtStaffName" value="" placeholder="Enter your Medical User Name" name="txtStaffName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Staff Email</label>
+                    <input type="text" class="form-control" id="txtStaffEmail" placeholder="Enter your Staff Email" name="txtStaffEmail" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="">User Name</label>
+                    <input type="text" class="form-control" id="txtUserName" placeholder="Enter User Name" name="txtUserName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="">is Admin</label>
+                    <input type="checkbox" id="txtAdmin" name="txtAdmin" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="">is Medical User</label>
+                    <input type="checkbox" id="txtMedicalUser" name="txtMedicalUser" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="">is User Monitor</label>
+                    <input type="checkbox" id="txtUserMonitor" name="txtUserMonitor" required>
+                </div>
+
+                <button class="btn btn-primary" type="submit"><i class="fas fa-edit"></i>Submit</button>
+
+                <a href="/medicalUser-list" class="btn btn-warning"><i class="fa fa-undo">Cancel</i></a>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<%- include ../partials/bottom_nav.ejs %> 
+<%- include ../partials/footer.ejs %> 

@@ -1,0 +1,126 @@
+<%- include ../partials/header.ejs %> 
+<%- include ../partials/main_nav.ejs %> 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src = "https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js" defer ></script>
+
+<script>    
+    $(document).ready(function () {
+        $('#tblVaccineList').DataTable();
+    })
+
+    function displayType() {
+      var select = document.getElementById("selVaccineType").value;
+      var vaccineCountStr = document.getElementById('txtVaccineCount').value;    
+      var vaccineCount = parseInt(vaccineCountStr);
+      console.log(vaccineCount)
+      switch(select) {
+        case "walkin":
+            document.getElementById("thWalkIn").removeAttribute('style');
+            document.getElementById("thAppointment").style.display="none";
+
+            for (let index = 0; index < vaccineCount; index++) {
+              document.getElementById("tdWalkIn" + [index]).removeAttribute('style')
+            }
+
+            for (let index = 0; index < vaccineCount; index++) {
+              document.getElementById("tdAppointment" + [index]).style.display="none";
+            }
+          break;
+        case "appointment":
+
+            document.getElementById("thAppointment").removeAttribute('style');
+            document.getElementById("thWalkIn").style.display="none";
+
+            for (let index = 0; index < vaccineCount; index++) {
+                  document.getElementById("tdAppointment" + [index]).removeAttribute('style')
+                }
+
+                for (let index = 0; index < vaccineCount; index++) {
+                  document.getElementById("tdWalkIn" + [index]).style.display="none";
+                }
+          break;
+        default:
+            document.getElementById("thAppointment").style.display="none";
+            document.getElementById("thWalkIn").style.display="none";
+
+            for (let index = 0; index < vaccineCount; index++) {
+              document.getElementById("tdWalkIn" + [index]).style.display="none";
+              document.getElementById("tdAppointment" + [index]).style.display="none";
+                }
+
+      }
+    }
+</script>
+
+<main>
+    <div class="row align-items-ms-stretch">
+    <div class="col-md-6 container">
+      <div class="row">
+          <div class="col-md-offset-3 col-md-6">
+              <h1><%= title %> </h1>
+              <div class="container" style="padding-bottom: 30px;">
+                <h2>Covid 19 Vaccine</h2>
+                <p>The COVID-19 vaccine helps our bodies develop immunity to the virus that causes COVID-19 without getting sick. Different types of vaccines provide protection in different ways.</p>
+            </div>
+            <div class="box" style="padding-bottom: 20px;">
+              <% if(adminUser || medicalUser) { %> 
+              <a href="/vaccines-list/add" class="btn btn-primary" role="button"><i class="fas fa-plus-circle"></i> Add a vaccine</a>
+              <% } %> 
+              <br>
+            </div>
+            <div style="padding-bottom: 20px;">
+              <p>Select which vaccine type you would like to see</p>
+              <input style="display:none" type="number" id="txtVaccineCount" value="<%= vaccineList.length%>"></input> 
+              <select id="selVaccineType" onchange="displayType()">
+                <option>Select One. . .</option>
+                <option value="walkin">Walk In</option>
+                <option value="appointment">Appointment</option>
+              </select>
+            </div>
+            <div class="box" >
+              <table id="tblVaccineList" class="table table-bordered table-striped table-hover">
+                <thead>
+                  <tr>
+                      <th class="text-center">date</th>
+                      <th class="text-center">vaccine Name</th>
+                      <th class="text-center">vaccine Quantity</th>
+                      <th class="text-center">suitable age</th>
+                      <th id="thWalkIn" style="display: none;" class="text-center">walk-in vaccine quantity</th>
+                      <th id="thAppointment" style="display: none;" class="text-center">appointment vaccine quantity</th>
+                      <% if(adminUser || medicalUser) { %> 
+                      <th class="text-center"></th>
+                      <th class="text-center"></th>
+                      <% } %> 
+                  </tr>
+                </thead>
+                <tbody>
+                  <!--Repeatable Teamplate Row-->
+                  <% for(let count = 0; count < vaccineList.length; count++) {%> 
+                        <tr>
+                            <td class="text-center"><%= vaccineList[count].Date %> </td>
+                            <td class="text-center"><%= vaccineList[count].vaccineName %> </td>
+                            <td class="text-center"><%= vaccineList[count].vaccineQuantity %> </td>
+                            <td class="text-center"><%= vaccineList[count].suitableAge %> </td>
+                            <td id="tdWalkIn<%= count %>" style="display: none;" class="text-center"><%= vaccineList[count].walkIn %> </td>
+                            <td id="tdAppointment<%= count %>" style="display: none;" class="text-center"><%= vaccineList[count].Appointment %> </td>
+                            <% if(adminUser || medicalUser) { %> 
+                            <td class="text-center">
+                                <a href="/vaccines-list/edit/<%= vaccineList[count]._id %> " class="btn btn-primary"><i class="fas fa-pencil alt"></i>Edit</a>
+                            </td>
+                            <td class="text-center">
+                                <a href="/vaccines-list/delete/<%= vaccineList[count]._id %> " class="btn btn-danger"><i class="fas fa-trash-lat"></i>Delete</a>
+                            </td>
+                            <% } %> 
+                        </tr>
+                    <% } %> 
+                </tbody>
+              </table>
+          </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%- include ../partials/bottom_nav.ejs %> 
+<%- include ../partials/footer.ejs %> 

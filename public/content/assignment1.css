@@ -1,0 +1,87 @@
+/* Home */
+.homeinfo{
+    width: 48.95vw;
+    height: 20.83vw;
+}
+.student{
+    width: 635px;
+    height: 400px;
+    margin: 1px auto;
+}
+
+.link{
+    margin-top: 1.53vw;
+}
+.link a{
+    color: rgb(255, 255, 255);
+}
+.link li{
+    display: inline-block;
+    margin-left: 1.53vw;
+}
+
+/* About */
+.personinfor{
+    display: inline-block;
+    list-style: none;
+    padding: 0;
+}
+.personinfor li{
+    margin-top: 20px;
+}
+.person{
+    position: relative;
+    top: -280px;
+    left: 530px;
+}
+
+/* vaccine */
+.vaccinesurvey{
+    display: inline-block;
+}
+.vaccineborder{
+    border-bottom: 3px solid rgb(255, 255, 255);
+}
+.vaccine div input, textarea{
+    width: 500px;
+}
+.vaccine div{
+    padding-top: 10px;
+}
+.vaccineinfo{
+    display: inline-block;
+    vertical-align: text-bottom;
+}
+.vaccineinfo li{
+    list-style: none;
+    padding: 5px;
+}
+.insimg{
+    display: none;
+    transition: all 30s linear;
+}
+.ins:hover +.insimg{
+    display: block;
+    transform: scale(1.1);
+    transition: all 30s linear;
+}
+.wechatimg{
+    display: none;
+}
+.wechat:hover  +.wechatimg{
+    display: block;
+}
+
+
+/* bg */
+main{
+    color: #ffffff;
+}
+body{
+    background-image: url("/Assets/images/background.jpg");
+    background-size: cover;
+}
+
+.title{
+    background-image: linear-gradient( #ffffff 0%,rgba(0,0,0,0.5) 20%, rgba(0,0,0,0) 100%);
+}

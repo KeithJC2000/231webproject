@@ -1,0 +1,52 @@
+<%- include ../partials/header.ejs %> 
+<%- include ../partials/main_nav.ejs %> 
+
+<!-- content for the Add page -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+            <h1><%= title %> </h1>
+            <form class="form" method="POST">
+                <div class="form-group">
+                    <label for="">Display Name</label>
+                    <input type="text" class="form-control" id="txtDisplayName" placeholder="Enter your Display name" name="txtDisplayName" value="<%= medicalUser.displayName %>" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="">User Name</label>
+                    <input type="text" class="form-control" id="txtUserName" placeholder="Enter your User Name" name="txtUserName" value="<%= medicalUser.username %>" required>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="">Email Address</label>
+                    <input type="text" class="form-control" id="txtEmail" placeholder="Enter Email Address" name="txtEmail" value="<%= medicalUser.email %>" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Admin User</label>
+                    <input type="checkbox" id="chkAdminUser" name="chkAdminUser" Checked="<% medicalUser.adminUser ? "checked" : false %>" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Medical User</label>
+                    <input type="checkbox" id="chkMedicalUser" name="chkMedicalUser" Checked="<% medicalUser.medicalUser ? "checked" : "" %>" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="">User Monitor</label>
+                    <input type="checkbox" id="chkMedicalUser" name="chkUserMonitor" Checked="<% medicalUser.userMonitor ? "checked" : "" %>" required>
+                </div>
+
+                <button class="btn btn-primary" type="submit"><i class="fas fa-edit"></i>Submit</button>
+
+                <a href="/medicalUser-list" class="btn btn-warning"><i class="fa fa-undo">Cancel</i></a>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<%- include ../partials/bottom_nav.ejs %> 
+<%- include ../partials/footer.ejs %> 
